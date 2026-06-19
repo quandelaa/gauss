@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gauss"
+version = "0.0.0"
+description = "An in development linear algebra library"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/gauss"
