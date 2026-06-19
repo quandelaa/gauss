@@ -1,3 +1,10 @@
-# gauss
+# Gauss
 
-A project to keep me occupied during the summer
+An in development linear algebra library
+
+## Installation
+Install via GitHub repository:
+
+```bash
+uv pip install git+https://github.com/quandelaa/gauss.git
+```
