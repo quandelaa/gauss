@@ -1,14 +1,20 @@
 import numpy as np
 
-def ref(matrix: list):
+def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
-    Returns the row-echelon-form of a matrix
+    Returns the row reduced echelon form of a matrix
     """
 
-    try:
-        A = np.array(matrix, float)
-    except Exception as e:
-        return e
+    A = np.array(matrix)
+
+    return ref(A)
+
+def ref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
+    """
+    Returns the row echelon form of a matrix (pivots aren't normalized)
+    """
+
+    A = np.array(matrix, float)
 
     rows, cols = A.shape
     col_pivot = 0
