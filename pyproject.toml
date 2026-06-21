@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gauss"
-version = "0.0.0"
-description = "An in development linear algebra library"
+version = "0.0.3"
+description = "A linear algebra library that provides functions to calculate lengthy, tireful calculations automatically"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
