@@ -1,4 +1,4 @@
-# Gauss
+# gauss
 
 An in development linear algebra library
 
@@ -16,4 +16,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 * Made by quandela
-* `June 2026`
+* `June - finished 2026`
