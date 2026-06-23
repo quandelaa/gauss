@@ -1,3 +1,4 @@
+import gauss
 import numpy as np
 
 def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
@@ -6,8 +7,59 @@ def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
 
     A = np.array(matrix)
+    B = gauss.ref(A)
+    
+    rows, cols = B.shape
+    col_pivot = cols-1
 
-    return ref(A)
+    for i in range(rows):
+        for j in range(cols):
+            if abs(B[i][j]) > 1e-12:
+                col_pivot = j
+
+                divider = B[i][j]
+
+                new_row = B[i] / divider
+                
+                B[i] = new_row
+                break
+
+    for i in range(rows-1, 0, -1):
+        next_row = i-1
+
+        if B[i, col_pivot] == 0:
+            if all(x == 0 for x in B[i]):
+                continue
+
+            had_change = False
+
+            for piv in range(col_pivot, -1, -1):
+                for piv_ in range(i, -1, -1):
+                    if abs(B[piv_][col_pivot]) > 1e-12:
+                        B[[piv_, i]] = B[[i, piv_]]
+                        had_change = True
+                        break
+
+                if abs(B[i][piv]) > 1e-12:
+                    col_pivot = piv
+                    had_change = True
+                    break
+
+            if not had_change:
+                return B
+
+        for j in range(next_row, -1, -1):
+            if j < 0:
+                break
+
+            multiplier = B[j][col_pivot] / B[i][col_pivot]
+
+            new_row = B[j] - (B[i] * multiplier)
+            B[j] = new_row
+
+        col_pivot -= 1
+
+    return B
 
 def ref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
