@@ -3,8 +3,7 @@
 A linear algebra library that provides functions to calculate lengthy, tireful calculations automatically
 
 TODO:
-- LU decomposition
-- Nullity of a matrix
+- finish LU decomposition
 
 ## Installation
 Install via GitHub repository:
