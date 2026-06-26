@@ -1,9 +1,28 @@
 import gauss
 import numpy as np
 
+def gauss_jordan(A: np.ndarray | list[list[float]], B: np.ndarray | list[list[float]]):
+    """
+    Returns the row-reduced-echelon form of augmented matrix A|B 
+    """
+
+    A = np.array(A)
+    B = np.array(B)
+
+    A_rows, A_cols = A.shape
+    B_rows, _ = B.shape
+
+    if B_rows != A_cols:
+        raise gauss.DimensionMismatchError(f"A has {A_cols} columns while B has {A_rows} rows. Cannot solve Ax = B because B needs to be in the column space of A")
+
+    aug = np.hstack([A, B])
+    R = gauss.rref(aug)
+
+    return R
+    
 def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
-    Returns the row reduced echelon form of a matrix
+    Returns the row-reduced-echelon form of a matrix
     """
 
     A = np.array(matrix)
@@ -20,7 +39,6 @@ def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
                 divider = B[i][j]
 
                 new_row = B[i] / divider
-                
                 B[i] = new_row
                 break
 
@@ -63,7 +81,7 @@ def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
 
 def ref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
-    Returns the row echelon form of a matrix (pivots aren't normalized)
+    Returns the row-echelon form of a matrix (pivots aren't normalized)
     """
 
     A = np.array(matrix, float)
