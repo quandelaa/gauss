@@ -1,7 +1,7 @@
 import gauss
 import numpy as np
 
-def gauss_jordan(A: np.ndarray | list[list[float]], B: np.ndarray | list[list[float]]):
+def gauss_jordan(A: np.ndarray | list[list[float]], B: np.ndarray | list[list[float]]) -> np.ndarray:
     """
     Returns the row-reduced-echelon form of augmented matrix A|B 
     """
