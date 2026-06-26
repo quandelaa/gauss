@@ -1,7 +1,7 @@
 import gauss
 import numpy as np
 
-def inverse(matrix: np.ndarray | list[list[float]]):
+def inverse(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     """
     Returns the inverse of a square matrix
     """
