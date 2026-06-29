@@ -1,9 +1,10 @@
 # gauss
 
-A linear algebra library that provides functions to calculate lengthy, tireful calculations automatically
+A linear algebra library that provides functions to calculate lengthy, and tireful calculations automatically.
 
 TODO:
-- finish LU decomposition
+- work on LU decomposition until it ultimately works
+- complete row_space and column_space functions
 
 ## Installation
 Install via GitHub repository:
@@ -18,14 +19,20 @@ import gauss
 
 A = [[1, 2, 3],
      [1, 4, 5],
-     [5, 8, 13]]
+     [2, 1, 13]]
 
 U = gauss.ref(A)
 R = gauss.rref(A)
 
+rank = gauss.rank(A)
+inv = gauss.inverse(A)
+
 print(U)
 print(R)
 
+print(rank)
+
+print(inv)
 ```
 
 ## License
