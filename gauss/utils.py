@@ -9,13 +9,10 @@ def is_invertible(matrix: np.ndarray | list[list[float]]) -> bool:
     A = np.array(matrix)
     rows, cols = A.shape
 
-    if not rows == cols:
+    if rows != cols:
         return False
 
-    raw_I = np.eye(rows)
-
-    I = np.array(raw_I)
-
+    I = np.eye(rows)
     R = rref(A)
 
     return(np.allclose(R, I))
