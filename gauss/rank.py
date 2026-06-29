@@ -3,11 +3,10 @@ import gauss
 
 def rank(matrix: np.ndarray | list[list[float]]) -> int:
     """
-    Ueturns the rank of a matrix
+    Returns the rank of a matrix
     """
 
     U = gauss.rref(matrix)
-    print(U)
     rank = 0
 
     for row in U:
