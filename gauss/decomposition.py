@@ -6,7 +6,7 @@ def lu(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     Returns P, L, U of PA = LU
     """
 
-    A = np.array(matrix)
+    A = np.array(matrix, float)
     rows, cols = A.shape
 
     if rows != cols:
@@ -21,7 +21,7 @@ def lu(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
         next_row = i+1
 
         if next_row > rows-1 or col_pivot > cols-1:
-            return L
+            return P, L, A
 
         if A[i][col_pivot] == 0: 
             had_change = False
@@ -30,6 +30,7 @@ def lu(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
                 for piv_ in range(i, rows):
                     if abs(A[piv_][col_pivot]) > 1e-12:
                         A[[piv_, i]] = A[[i, piv_]]
+                        P[[piv_, i]] = P[[i, piv_]]
                         had_change = True
                         break
 
@@ -39,7 +40,7 @@ def lu(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
                     break
 
             if not had_change:
-                return L
+                return P, L, A
 
         for j in range(next_row, rows):
             multiplier = A[j][col_pivot] / A[i][col_pivot]
