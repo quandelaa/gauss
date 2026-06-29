@@ -1,7 +1,7 @@
 from gauss import rref
 import numpy as np
 
-def is_invertible(matrix: np.ndarray | list[list[float]]):
+def is_invertible(matrix: np.ndarray | list[list[float]]) -> bool:
     """
     Returns whether a matrix is invertible or not
     """
@@ -17,7 +17,18 @@ def is_invertible(matrix: np.ndarray | list[list[float]]):
     I = np.array(raw_I)
 
     R = rref(A)
-    if np.allclose(R, I, atol=1e-12) is False:
-        return False
 
-    return True
+    return(np.allclose(R, I))
+
+def is_square(matrix: np.ndarray | list[list[float]]) -> bool:
+    """
+    Returns whether a matrix is square or not
+    """
+
+    A = np.array(matrix)
+    rows, cols = A.shape
+
+    if rows == cols:
+        return True
+
+    return False
