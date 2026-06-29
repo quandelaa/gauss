@@ -1,13 +1,19 @@
-"""
-Gauss - a linear algebra library
-"""
+from gauss.elimination import (
+        rref,
+        ref,
+        gauss_jordan,
+)
 
-from gauss.elimination import ref
-from gauss.elimination import rref
 from gauss.solvers import inverse
-from gauss.elimination import gauss_jordan
 from gauss.decomposition import lu
+from gauss.rank import rank
 from gauss import utils
+
+from gauss.spaces import (
+        column_space,
+        row_space,
+)
+
 from gauss.exceptions import (
         GaussError,
         NotSquareError,
@@ -21,6 +27,9 @@ __all__ = [
     "NotSquareError",
     "GaussError",
 
+    "column_space",
+    "row_space",
+    "rank",
     "lu",
     "utils",
     "gauss_jordan",
