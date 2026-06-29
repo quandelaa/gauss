@@ -6,7 +6,7 @@ def inverse(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     Returns the inverse of a square matrix
     """
     
-    A = np.array(matrix)
+    A = np.array(matrix, float)
     rows, _ = A.shape
 
     if gauss.utils.is_invertible(A) is False:
