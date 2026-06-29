@@ -6,8 +6,8 @@ def gauss_jordan(A: np.ndarray | list[list[float]], B: np.ndarray | list[list[fl
     Returns the row-reduced-echelon form of augmented matrix A|B 
     """
 
-    A = np.array(A)
-    B = np.array(B)
+    A = np.array(A, float)
+    B = np.array(B, float)
 
     A_rows, A_cols = A.shape
     B_rows, _ = B.shape
@@ -25,7 +25,7 @@ def rref(matrix: np.ndarray | list[list[float]]) -> np.ndarray:
     Returns the row-reduced-echelon form of a matrix
     """
 
-    A = np.array(matrix)
+    A = np.array(matrix, float)
     B = gauss.ref(A)
     
     rows, cols = B.shape
